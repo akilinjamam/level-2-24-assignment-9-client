@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { products } from "../../functionalComponents/flashSale/flashSaleItems";
 import calculateRating from "../../calculateRating/calculateRating";
 import getLastDatesForYear from "../../calculateRating/getLastDate";
@@ -26,7 +26,7 @@ const ProductDetail = () => {
                         </div>
                         <div className="flex my-1.5">
                             {
-                                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                                
                                 products?.slice(0,1).map(item => item?.images?.map(_img => <div className="w-[100px] h-[80px] bg-red-100 mx-1"></div> ))
                             }
                         </div>
@@ -44,7 +44,9 @@ const ProductDetail = () => {
                                     <p className="text-green-600 text-2xl">${item?.price}</p>
                                     <hr />
                                     <br />
-                                    <p className="cursor-pointer" title="Shop Name"><i className="uil uil-store"></i>  {item?.vendorName}</p>
+                                    <Link to="/vendors/1">
+                                        <p className="inline-block p-1 text-white font-semibold cursor-pointer bg-blue-400" title="Shop Name"><i className="uil uil-store"></i>  {item?.vendorName}</p>
+                                    </Link>
                                 </div>
                             ))
                         }
