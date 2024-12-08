@@ -1,7 +1,9 @@
+import Carousel from "../../functionalComponents/carousel/Carousel";
+
 const Home = () => {
     return (
         <div className="">
-            this is home
+            <Carousel/>
         </div>
     );
 };

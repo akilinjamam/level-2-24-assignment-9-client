@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { navroutes } from "./navroute";
 
 const Nav = () => {
@@ -11,7 +12,7 @@ const Nav = () => {
                 <div className="w-[80%] h-[40%] text-white">
                     <ul className="flex items-center justify-around p-1.5 w-[80%] ">
                         {
-                            navroutes?.map((item, index) => <li key={index+1}>{item?.route}</li> )
+                            navroutes?.map((item, index) => <Link to={item?.link}><li key={index+1}>{item?.route}</li></Link> )
                         }
                     </ul>
                 </div>
