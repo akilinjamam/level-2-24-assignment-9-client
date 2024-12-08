@@ -7,18 +7,18 @@ export const navroutes: TNavRoutes[] = [
   },
   {
     route: "item 2",
-    link: "",
+    link: "/2",
   },
   {
     route: "item 3",
-    link: "",
+    link: "/3",
   },
   {
     route: "item 4",
-    link: "",
+    link: "/4",
   },
   {
     route: "item 5",
-    link: "",
+    link: "/5",
   },
 ];

@@ -1,18 +1,14 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
 import { navroutes } from "./navroute";
 
 const Nav = () => {
-
-
-
-
     return (
         <div className="w-full h-[100px] bg-orange-600">
             <div className="w-[1000px] h-full  mx-auto">
-                <div className="w-[80%] h-[40%] text-white">
+                <div className="w-[80%] h-[40%] ">
                     <ul className="flex items-center justify-around p-1.5 w-[80%] ">
                         {
-                            navroutes?.map((item, index) => <Link to={item?.link}><li key={index+1}>{item?.route}</li></Link> )
+                            navroutes?.map((item, index) => <NavLink to={item?.link} className={({isActive}) => isActive ? 'text-blue-900 font-bold' : "text-white"}><li key={index+1}>{item?.route}</li></NavLink> )
                         }
                     </ul>
                 </div>
