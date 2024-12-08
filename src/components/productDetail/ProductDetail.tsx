@@ -2,11 +2,19 @@
 import { useParams } from "react-router";
 import { products } from "../../functionalComponents/flashSale/flashSaleItems";
 import calculateRating from "../../calculateRating/calculateRating";
+import getLastDatesForYear from "../../calculateRating/getLastDate";
 
 const ProductDetail = () => {
     const {productId} = useParams()
+    const date = new Date();
+    const getMonth = date.getMonth();
 
-   console.log(productId);
+    const getLastDate = getLastDatesForYear(2024)
+
+
+
+    console.log(getLastDate[getMonth]);
+    console.log(productId);
     
     return (
         <div className="w-full bg-white">
