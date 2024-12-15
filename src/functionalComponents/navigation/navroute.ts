@@ -21,8 +21,4 @@ export const navroutes: TNavRoutes[] = [
     route: "item 5",
     link: "/5",
   },
-  {
-    route: "item 6",
-    link: "/5",
-  },
 ];
