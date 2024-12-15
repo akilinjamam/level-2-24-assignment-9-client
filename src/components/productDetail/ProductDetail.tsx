@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link, useParams } from "react-router";
 import { products } from "../../functionalComponents/flashSale/flashSaleItems";
 import calculateRating from "../../calculateRating/calculateRating";
 import getLastDatesForYear from "../../calculateRating/getLastDate";
+import useGetProductDataWithFlashId from "../../data-middleware/useGetProductDataWithId";
+import { calculateTotalPrice } from "../../functionalComponents/calculateTotal/calculateTotal";
 
 const ProductDetail = () => {
     const {productId} = useParams()
@@ -15,6 +18,16 @@ const ProductDetail = () => {
 
     console.log(getLastDate[getMonth]);
     console.log(productId);
+
+
+    const {allProductDataWithId} = useGetProductDataWithFlashId(productId as string)
+
+    const item = allProductDataWithId?.data;
+    
+    const getAllRatings = item?.Rating?.map((rate:any) => rate?.rating);
+
+   const averageRating = Math.ceil(calculateTotalPrice(getAllRatings)/item?.Rating?.length);
+    
     
     return (
         <div className="w-full bg-white">
@@ -32,13 +45,11 @@ const ProductDetail = () => {
                         </div>
                     </div>
                     <div className="w-[65%] h-full p-2 text-sm leading-6 ">
-                        {
-                            products?.slice(0,1)?.map(item => (
-                                <div>
+                    <div>
                                     <p className="text-3xl font-semibold">{item?.productName}</p>
                                     <br />
                                     <p>Category: {item?.category}</p>
-                                    <p>{calculateRating(item?.ratings)?.map(_rating => <i className="uil uil-star text-yellow-400"></i>)}</p>
+                                    <p>{calculateRating(averageRating)?.map(_rating => <i className="uil uil-star text-yellow-400"></i>)}</p>
                                     <br />
                                     <hr />
                                     <p className="text-green-600 text-2xl">${item?.price}</p>
@@ -48,8 +59,6 @@ const ProductDetail = () => {
                                         <p className="inline-block p-1 text-white font-semibold cursor-pointer bg-blue-400" title="Shop Name"><i className="uil uil-store"></i>  {item?.vendorName}</p>
                                     </Link>
                                 </div>
-                            ))
-                        }
                     </div>
                 </div>
             </div>

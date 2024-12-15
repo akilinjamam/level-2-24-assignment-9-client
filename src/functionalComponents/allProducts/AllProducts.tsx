@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { useNavigate } from "react-router";
+
 const Products = ({allProducts, range, setRange, setCategory, category}: {allProducts:any, range:any, setRange:any, category:any, setCategory: any}) => {
+
+    const navigate = useNavigate();
    
     return (
         <div className="w-[1000px] mx-auto my-6 bg-white px-2">
@@ -21,7 +25,7 @@ const Products = ({allProducts, range, setRange, setCategory, category}: {allPro
             <div className="flex flex-wrap">
                 {
                    allProducts?.data?.map((product:any) => 
-                    <div className="w-[150px] h-[150px] bg-green-200 m-1 flex items-center justify-center relative cursor-pointer">
+                    <div onClick={() => navigate(`/products/${product?.productId}`)} className="w-[150px] h-[150px] bg-green-200 m-1 flex items-center justify-center relative cursor-pointer">
                    <img className="absolute top-0 w-full h-full" src={product?.images[1]} alt="" />
                    <p className="z-10 bg-gray-400 bg-opacity-50 p-1 font-bold text-green-300">{product?.category}</p>
                </div>

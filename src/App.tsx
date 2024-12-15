@@ -7,6 +7,8 @@ import Cart from "./components/cart/Cart"
 import Checkout from "./components/checkout/Checkout"
 import OrderSummery from "./components/orderSummery/OrderSummery"
 import AllProductsWithCategory from "./components/allProductsWithCategory/AllProductsWithCategory"
+import FlashSale from "./functionalComponents/flashSale/FlashSale"
+import AllFlashSale from "./functionalComponents/flashSale/AllFleshSale"
 function App() {
 
 
@@ -38,6 +40,14 @@ function App() {
     {
       path: '/allProductsWithCategory/:id',
       element: <Layout><AllProductsWithCategory/></Layout>
+    },
+    {
+      path: '/flashSale',
+      element: <Layout><FlashSale/></Layout>
+    },
+    {
+      path: '/allFlashSale',
+      element: <Layout><AllFlashSale/></Layout>
     },
   ])
  
