@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Link, useParams } from "react-router";
-import { products } from "../../functionalComponents/flashSale/flashSaleItems";
+import { Link, useNavigate, useParams } from "react-router";
 import calculateRating from "../../calculateRating/calculateRating";
 import getLastDatesForYear from "../../calculateRating/getLastDate";
 import useGetProductDataWithFlashId from "../../data-middleware/useGetProductDataWithId";
 import { calculateTotalPrice } from "../../functionalComponents/calculateTotal/calculateTotal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useGetProductData from "../../data-middleware/useProductData";
 
 const ProductDetail = () => {
+
+    const navigate = useNavigate();
 
     const {allProductData} = useGetProductData('', '', '');
 
@@ -20,6 +21,7 @@ const ProductDetail = () => {
 
     const getLastDate = getLastDatesForYear(2024)
 
+    
 
 
     console.log(getLastDate[getMonth]);
@@ -27,10 +29,12 @@ const ProductDetail = () => {
     console.log(allProductData?.data)
 
 
-    const {allProductDataWithId} = useGetProductDataWithFlashId(productId as string);
+    const {allProductDataWithId, refetch} = useGetProductDataWithFlashId(productId as string);
 
     
-    
+    useEffect(() => {
+        refetch()
+    },[productId, refetch])
     
     const item = allProductDataWithId?.data;
     
@@ -75,7 +79,7 @@ const ProductDetail = () => {
                                     <p className="text-green-600 text-2xl">${item?.price}</p>
                                     <hr />
                                     <br />
-                                    <Link to={`/vendors/${item?.vendor?.vendorId}`}>
+                                    <Link to={`/vendors/${item?.vendor?.vendorId}/${item?.productId}`}>
                                         <p className="inline-block p-1 text-white font-semibold cursor-pointer bg-blue-400" title="Shop Name"><i className="uil uil-store"></i>  {item?.vendor?.vendorName}</p>
                                     </Link>
                                 </div>
@@ -112,7 +116,7 @@ const ProductDetail = () => {
                             findRelatedProductData?.map((item:any) => {
                                 return (
                                     <div className="relative w-[150px] h-[150px] bg-green-100 m-1 flex items-center justify-center">
-                                        <p className="font-bold bg-opacity-50 bg-gray-200 w-full text-center">{item?.productName}</p>
+                                        <p onClick={() => navigate(`/products/${item?.productId}`)} className="font-bold bg-opacity-50 bg-gray-200 w-full text-center cursor-pointer">{item?.productName}</p>
                                         <p className="absolute bottom-0 text-red-700 font-bold bg-opacity-50 bg-gray-200 w-full text-center">{item?.price}</p>
                                     </div>
                                 )

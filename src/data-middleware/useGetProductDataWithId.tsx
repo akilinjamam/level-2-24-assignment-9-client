@@ -9,6 +9,7 @@ const useGetProductDataWithFlashId = (id:string) => {
         isError,
         isLoading,
         error,
+        refetch
       } = useQuery({
         queryKey: ["fetchGetProductDataWithId"],
         queryFn: () => fetchGetProductDataWithId(id)
@@ -16,7 +17,7 @@ const useGetProductDataWithFlashId = (id:string) => {
     
       console.log(allProductDataWithId)
     
-      return { allProductDataWithId, isError, isLoading, error };
+      return { allProductDataWithId, isError, isLoading, error, refetch };
     
    
 };

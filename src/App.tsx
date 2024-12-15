@@ -22,7 +22,7 @@ function App() {
       element: <Layout><ProductDetail/></Layout>
     },
     {
-      path: '/vendors/:vendorId',
+      path: '/vendors/:vendorId/:productId',
       element: <Layout><Vendor/></Layout>
     },
     {
