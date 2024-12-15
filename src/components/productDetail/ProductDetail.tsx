@@ -6,8 +6,14 @@ import calculateRating from "../../calculateRating/calculateRating";
 import getLastDatesForYear from "../../calculateRating/getLastDate";
 import useGetProductDataWithFlashId from "../../data-middleware/useGetProductDataWithId";
 import { calculateTotalPrice } from "../../functionalComponents/calculateTotal/calculateTotal";
+import { useState } from "react";
+import useGetProductData from "../../data-middleware/useProductData";
 
 const ProductDetail = () => {
+
+    const {allProductData} = useGetProductData('', '', '');
+
+    const [selectImg, setSelectImg] = useState(0);
     const {productId} = useParams()
     const date = new Date();
     const getMonth = date.getMonth();
@@ -18,12 +24,22 @@ const ProductDetail = () => {
 
     console.log(getLastDate[getMonth]);
     console.log(productId);
+    console.log(allProductData?.data)
 
 
-    const {allProductDataWithId} = useGetProductDataWithFlashId(productId as string)
+    const {allProductDataWithId} = useGetProductDataWithFlashId(productId as string);
 
+    
+    
+    
     const item = allProductDataWithId?.data;
     
+    const findProductData = allProductData?.data?.filter((f:any) => f?.category  === item?.category);
+
+    const findRelatedProductData = findProductData?.filter((f:any) => f?.productId !== productId)
+
+    console.log(findRelatedProductData)
+
     const getAllRatings = item?.Rating?.map((rate:any) => rate?.rating);
 
    const averageRating = Math.ceil(calculateTotalPrice(getAllRatings)/item?.Rating?.length);
@@ -35,12 +51,16 @@ const ProductDetail = () => {
                 <div className="w-full h-[400px] flex">
                     <div className="w-[35%] h-full bg-gray-200 p-2">
                         <div className="w-[full] h-[300px] bg-gray-100">
-                            
+                            <img className="w-full h-full" src={item?.images[selectImg]} alt="" />
                         </div>
                         <div className="flex my-1.5">
                             {
                                 
-                                products?.slice(0,1).map(item => item?.images?.map(_img => <div className="w-[100px] h-[80px] bg-red-100 mx-1"></div> ))
+                                item?.images?.slice(0,2).map((item:any, index: number) => 
+                                <div style={{border: `${selectImg === index ? '2px solid blue' : ''}`}} className="w-[100px] h-[80px] bg-red-100 mx-1">
+                                        <img onClick={() => setSelectImg(index)} className="w-full h-full cursor-pointer" src={item} alt="" />
+                                </div>  
+                                )
                             }
                         </div>
                     </div>
@@ -55,8 +75,8 @@ const ProductDetail = () => {
                                     <p className="text-green-600 text-2xl">${item?.price}</p>
                                     <hr />
                                     <br />
-                                    <Link to="/vendors/1">
-                                        <p className="inline-block p-1 text-white font-semibold cursor-pointer bg-blue-400" title="Shop Name"><i className="uil uil-store"></i>  {item?.vendorName}</p>
+                                    <Link to={`/vendors/${item?.vendor?.vendorId}`}>
+                                        <p className="inline-block p-1 text-white font-semibold cursor-pointer bg-blue-400" title="Shop Name"><i className="uil uil-store"></i>  {item?.vendor?.vendorName}</p>
                                     </Link>
                                 </div>
                     </div>
@@ -65,14 +85,21 @@ const ProductDetail = () => {
             <div className="w-[1000px] mx-auto bg-gray-100 m-6 p-2">
                 <div className="w-full h-auto">
                     <p className="font-bold">Product Details:</p>
-                    {
-                        products?.slice(0,1)?.map(item => <p>{item?.details}</p> )
-                    }
+                    <p>{item?.details}</p>
                 </div>
                 <br />
                 <hr />
                 <br />
                 <p>Customer Review :</p>
+                {
+                    item?.Review?.map( (item:any) => {
+                        return (
+                            <div>
+                                {item?.review}
+                            </div>
+                        )
+                    })
+                }
                 <div>
 
                 </div>
@@ -82,10 +109,11 @@ const ProductDetail = () => {
                     <p className="font-bold">Related Products:</p>
                     <div className="flex flex-wrap">
                         {
-                            products?.map(_item => {
+                            findRelatedProductData?.map((item:any) => {
                                 return (
-                                    <div className="w-[150px] h-[150px] bg-green-100 m-1">
-                                        
+                                    <div className="relative w-[150px] h-[150px] bg-green-100 m-1 flex items-center justify-center">
+                                        <p className="font-bold bg-opacity-50 bg-gray-200 w-full text-center">{item?.productName}</p>
+                                        <p className="absolute bottom-0 text-red-700 font-bold bg-opacity-50 bg-gray-200 w-full text-center">{item?.price}</p>
                                     </div>
                                 )
                             } )

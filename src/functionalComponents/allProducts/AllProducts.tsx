@@ -27,7 +27,8 @@ const Products = ({allProducts, range, setRange, setCategory, category}: {allPro
                    allProducts?.data?.map((product:any) => 
                     <div onClick={() => navigate(`/products/${product?.productId}`)} className="w-[150px] h-[150px] bg-green-200 m-1 flex items-center justify-center relative cursor-pointer">
                    <img className="absolute top-0 w-full h-full" src={product?.images[1]} alt="" />
-                   <p className="z-10 bg-gray-400 bg-opacity-50 p-1 font-bold text-green-300">{product?.category}</p>
+                   <p title={product?.productName} className="z-10 bg-gray-400 bg-opacity-50 p-1 font-bold text-green-300 w-full text-center">{product?.productName?.length > 15 ? product?.productName?.slice(0,15) + '..' : product?.productName }</p>
+                   <p className="z-10 text-red-700 absolute bottom-2 bg-gray-100 bg-opacity-50 p-1 font-bold">{product?.price}</p>
                </div>
                ) 
                 }
