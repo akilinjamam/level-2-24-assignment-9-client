@@ -6,6 +6,7 @@ import Vendor from "./components/vendor/Vendor"
 import Cart from "./components/cart/Cart"
 import Checkout from "./components/checkout/Checkout"
 import OrderSummery from "./components/orderSummery/OrderSummery"
+import AllProductsWithCategory from "./components/allProductsWithCategory/AllProductsWithCategory"
 function App() {
 
 
@@ -33,6 +34,10 @@ function App() {
     {
       path: '/orderSummery',
       element: <Layout><OrderSummery/></Layout>
+    },
+    {
+      path: '/allProductsWithCategory/:id',
+      element: <Layout><AllProductsWithCategory/></Layout>
     },
   ])
  
