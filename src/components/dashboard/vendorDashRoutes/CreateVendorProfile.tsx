@@ -22,8 +22,10 @@ const CreateVendorProfile = () => {
 
         const formData = new FormData();
 
-        formData.append("data", JSON.stringify(vendorInput))
         formData.append("images", imgFile)
+        formData.append("data", JSON.stringify(vendorInput))
+
+        console.log(imgFile);
 
         postVendorData(formData)
 

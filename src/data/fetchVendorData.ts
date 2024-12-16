@@ -13,11 +13,20 @@ export const fetchGetVendorDataWithId = async (id: string) => {
   }
 };
 
-export const fetchPostVendorData = async (data: any) => {
+export const fetchPostVendorData = async (data: FormData) => {
   try {
+    console.log(data);
+    const token = localStorage.getItem("userToken");
+    console.log(token);
     const response = await axios.post(
       `https://level-2-24-assignment-9-server.vercel.app/api/vendors/create-vendor`,
-      data
+      data,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: token,
+        },
+      }
     );
     const result = response?.data;
     return result;
