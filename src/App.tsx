@@ -9,6 +9,12 @@ import OrderSummery from "./components/orderSummery/OrderSummery"
 import AllProductsWithCategory from "./components/allProductsWithCategory/AllProductsWithCategory"
 import FlashSale from "./functionalComponents/flashSale/FlashSale"
 import AllFlashSale from "./functionalComponents/flashSale/AllFleshSale"
+import Registration from "./components/registration/Registration"
+import Login from "./components/login/Login"
+import VendorDashboard from "./components/dashboard/VendorDashboard"
+import ProductVendorDash from "./components/dashboard/vendorDashRoutes/ProductVendorDash"
+import VendorProfile from "./components/dashboard/vendorDashRoutes/VendorProfile"
+import CreateVendorProfile from "./components/dashboard/vendorDashRoutes/CreateVendorProfile"
 function App() {
 
 
@@ -48,6 +54,29 @@ function App() {
     {
       path: '/allFlashSale',
       element: <Layout><AllFlashSale/></Layout>
+    },
+    {
+      path: '/registration',
+      element: <Layout><Registration/></Layout>
+    },
+    {
+      path: '/login',
+      element: <Layout><Login/></Layout>
+    },
+    {
+      path: '/vendorDashboard',
+      element: <Layout><VendorDashboard/></Layout>,
+      children: [
+        {index: true, element:<ProductVendorDash/> },
+        {
+          path: 'vendorProfile',
+          element: <VendorProfile/>
+        },
+        {
+          path: 'createVendorProfile',
+          element: <CreateVendorProfile/>
+        },
+      ]
     },
   ])
  

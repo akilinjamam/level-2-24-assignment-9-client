@@ -10,12 +10,12 @@ export const navroutes: TNavRoutes[] = [
     link: "/allFlashSale",
   },
   {
-    route: "item 3",
-    link: "/3",
+    route: "Registration",
+    link: "/registration",
   },
   {
-    route: "item 4",
-    link: "/4",
+    route: "Login",
+    link: "/login",
   },
   {
     route: "item 5",
