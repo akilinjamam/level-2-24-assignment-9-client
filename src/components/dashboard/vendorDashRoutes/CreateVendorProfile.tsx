@@ -66,7 +66,7 @@ const CreateVendorProfile = () => {
                 { imgPreview &&
                     <img className="w-[100px] h-[100px] mb-2" src={imgPreview} alt="" />
                 }
-                <label className="text-sm bg-green-500 font-bold text-white px-2 py-1 cursor-pointer" htmlFor="image">Add Image</label>
+                <label className=" xtext-sm bg-green-500 font-bold text-white px-2 py-1 cursor-pointer" htmlFor="image">Add Image</label>
                 <input  type="file" name=""  id="image" className='hidden' onChange={(e) => handleImageChanges(e)} />
                 <br /><br />
                 <input className="bg-blue-500 text-white font-bold px-2" type="submit" value="Submit" />
