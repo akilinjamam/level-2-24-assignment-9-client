@@ -15,7 +15,7 @@ const useGetProductDataWithFlashId = (id:string) => {
         queryFn: () => fetchGetProductDataWithId(id)
       });
     
-      console.log(allProductDataWithId)
+     
     
       return { allProductDataWithId, isError, isLoading, error, refetch };
     

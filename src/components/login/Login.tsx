@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { loginInput } from "./loginInputFields";
 import useUserPostLoginData from "../../data-middleware/useUserLoginData";
+import { Link } from "react-router";
+import useResetPassword from "../../data-middleware/useResetPassword";
+import { toast } from "react-toastify";
 
 const Login = () => {
 
@@ -14,11 +17,21 @@ const Login = () => {
     })
 
     const handleSubmit = (e:any) => {
+
         e.preventDefault();
-
         console.log(registration);
-
         loginUserData(registration)
+    }
+
+    const {resetPassword} = useResetPassword()
+    const handleSendEmail = () => {
+
+        if(!registration.email){
+            toast.error('please type email')
+            return
+        }
+
+        resetPassword({email: registration.email})
     }
 
 
@@ -40,6 +53,11 @@ const Login = () => {
                 
                 <br /><br />
                 <input className="w-[300px] bg-blue-500 text-white font-bold cursor-pointer" type="submit" value={`${isPending ? 'loading...' : 'Login'}`} />
+                <br />
+                <div className="w-[300px] flex items-center justify-between text-sm text-blue-500">
+                    <Link to="/change-password"><p className="cursor-pointer">Change Password</p></Link>
+                    <p onClick={handleSendEmail} className="cursor-pointer">Reset Password</p>
+                </div>
             </form>
         </div>
     );

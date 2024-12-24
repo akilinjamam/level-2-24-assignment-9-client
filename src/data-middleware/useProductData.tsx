@@ -13,8 +13,6 @@ import { fetchGetProductData} from "../data/fetchProductData";
     queryFn: () => fetchGetProductData(category, from , to)
   });
 
-  console.log(allProductData)
-
   return { allProductData, isError, isLoading, error, refetch };
 };
 

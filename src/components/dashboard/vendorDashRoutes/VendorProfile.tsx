@@ -112,7 +112,7 @@ const VendorProfile = () => {
 
     }
 
-console.log(userId);
+console.log(vendorInfo);
     return (
         <div className="w-full">
             <div className={`w-full h-[30px] flex items-center ${userId ? 'justify-start' : 'justify-end'}`}>
@@ -165,7 +165,11 @@ console.log(userId);
                 </div>
             }   
             <div className="mt-2">
-                <button onClick={() => setEdit(true)} className="bg-blue-500 text-white font-bold px-2 cursor-pointer">Edit</button>    
+                {
+                    vendorInfo
+                    &&
+                    <button onClick={() => setEdit(true)} className="bg-blue-500 text-white font-bold px-2 cursor-pointer">Edit</button>
+                }    
                 { edit &&
                     <button onClick={() => {
                         setEdit(false)

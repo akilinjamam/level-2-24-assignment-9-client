@@ -14,7 +14,7 @@ const CreateVendorProfile = () => {
         details: '',
     })
 
-    const {postVendorData} = usePostVendorData()
+    const {postVendorData, isPending} = usePostVendorData()
 
     const handleSubmit = (e:any) => {
         e.preventDefault();
@@ -69,7 +69,7 @@ const CreateVendorProfile = () => {
                 <label className=" xtext-sm bg-green-500 font-bold text-white px-2 py-1 cursor-pointer" htmlFor="image">Add Image</label>
                 <input  type="file" name=""  id="image" className='hidden' onChange={(e) => handleImageChanges(e)} />
                 <br /><br />
-                <input className="bg-blue-500 text-white font-bold px-2" type="submit" value="Submit" />
+                <input className="bg-blue-500 cursor-pointer text-white font-bold px-2" type="submit" value={isPending ? 'creating...': 'Submit'} />
             </form>
         </div>
     );

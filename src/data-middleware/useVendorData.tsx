@@ -11,12 +11,13 @@ import { useNavigate } from "react-router";
       isError,
       isLoading,
       error,
+      refetch
     } = useQuery({
-      queryKey: ["fetchGetVendorDataWithId"],
-      queryFn: () => fetchGetVendorDataWithId(id)
+      queryKey: ["fetchGetVendorDataWithIds"],
+      queryFn: async () => await fetchGetVendorDataWithId(id)
     });
   
-    return { vendorData, isError, isLoading, error };
+    return { vendorData, isError, isLoading, error, refetch };
   };
  export const useGetVendorDataWithUserId = (id:string) => {
     const {

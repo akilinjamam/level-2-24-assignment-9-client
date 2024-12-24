@@ -30,13 +30,18 @@ const useUserPostLoginData = () => {
                 console.log(data);
                 toast.error(data)
             }
-            localStorage.setItem("userToken", token)
+            if(token){
+                localStorage.setItem("userToken", token)
+            }
             let decoded
             if(token){
                 decoded = jwtDecode<TTokenDecode>(token);
             }
-            if(decoded?.UserType === 'VENDOR' ){
-                navigate('/vendorDashboard')
+            if((decoded?.UserType === 'VENDOR') || (decoded?.UserType === 'ADMIN') ){
+                navigate('/vendorDashboard/vendorProfile')
+            }
+            if(decoded?.UserType === 'USER' ){
+                navigate('/')
             }
 
         },

@@ -28,3 +28,64 @@ export const fetchPostLoginData = async (data: any) => {
     return error?.response?.data?.message;
   }
 };
+
+export const fetchChangePasswordData = async (data: any) => {
+  try {
+    const token = localStorage.getItem("userToken");
+    const response = await axios.post(
+      `https://level-2-24-assignment-9-server.vercel.app/api/users/change-password`,
+      data,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    const result = response?.data;
+    console.log(response?.data);
+    return result;
+  } catch (error: any) {
+    console.log(error?.response?.data?.message);
+    return error?.response?.data?.message;
+  }
+};
+
+export const fetchResetPasswordData = async (data: any) => {
+  try {
+    const token = localStorage.getItem("userToken");
+    const response = await axios.post(
+      `https://level-2-24-assignment-9-server.vercel.app/api/users/sent-email`,
+      data,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    const result = response?.data;
+    console.log(response?.data);
+    return result;
+  } catch (error: any) {
+    console.log(error?.response?.data?.message);
+    return error?.response?.data?.message;
+  }
+};
+export const fetchRecoveryPasswordData = async (data: any, token: any) => {
+  try {
+    const response = await axios.post(
+      `https://level-2-24-assignment-9-server.vercel.app/api/users/reset-password`,
+      data,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+    const result = response?.data;
+    console.log(response?.data);
+    return result;
+  } catch (error: any) {
+    console.log(error?.response?.data?.message);
+    return error?.response?.data?.message;
+  }
+};

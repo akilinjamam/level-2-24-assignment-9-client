@@ -14,7 +14,7 @@ const Home = () => {
         to: ''
        })
    
-   const {allProductData, refetch} = useGetProductData(category, range.from, range.to) ;
+   const {allProductData, refetch, isLoading} = useGetProductData(category, range.from, range.to) ;
 
    useEffect(() => {
     refetch()
@@ -29,7 +29,7 @@ const Home = () => {
             <Carousel/>
             <FlashSale/>
             <Categories />
-            <Products allProducts ={allProductData} range={range} setRange={setRange} category={category} setCategory={setCategory}/>
+            <Products allProducts ={allProductData} range={range} setRange={setRange} category={category} setCategory={setCategory} isLoading={isLoading}/>
         </div>
     );
 };

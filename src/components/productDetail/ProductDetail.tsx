@@ -7,8 +7,12 @@ import useGetProductDataWithFlashId from "../../data-middleware/useGetProductDat
 import { calculateTotalPrice } from "../../functionalComponents/calculateTotal/calculateTotal";
 import { useEffect, useState } from "react";
 import useGetProductData from "../../data-middleware/useProductData";
+import useReplayData from "../../data-middleware/useReplayData";
+
 
 const ProductDetail = () => {
+
+    const [replys, setReplys] = useState('');
 
     const navigate = useNavigate();
 
@@ -47,6 +51,23 @@ const ProductDetail = () => {
     const getAllRatings = item?.Rating?.map((rate:any) => rate?.rating);
 
    const averageRating = Math.ceil(calculateTotalPrice(getAllRatings)/item?.Rating?.length);
+
+   const {postReplayData} = useReplayData(refetch)
+
+   const handleReply = (e:any, reviewId:string) => {
+       e.preventDefault();
+
+    
+    const newReplay = `@customer:${replys}`
+
+        const newData =  {
+            reviewId,
+            replay: newReplay
+        }
+        
+         console.log(reviewId);
+         postReplayData(newData)
+   }
     
     
     return (
@@ -60,7 +81,7 @@ const ProductDetail = () => {
                         <div className="flex my-1.5">
                             {
                                 
-                                item?.images?.slice(0,2).map((item:any, index: number) => 
+                                item?.images?.slice(0,3).map((item:any, index: number) => 
                                 <div style={{border: `${selectImg === index ? '2px solid blue' : ''}`}} className="w-[100px] h-[80px] bg-red-100 mx-1">
                                         <img onClick={() => setSelectImg(index)} className="w-full h-full cursor-pointer" src={item} alt="" />
                                 </div>  
@@ -73,6 +94,7 @@ const ProductDetail = () => {
                                     <p className="text-3xl font-semibold">{item?.productName}</p>
                                     <br />
                                     <p>Category: {item?.category}</p>
+                                    <p>Quantity: {item?.quantity}</p>
                                     <p>{calculateRating(averageRating)?.map(_rating => <i className="uil uil-star text-yellow-400"></i>)}</p>
                                     <br />
                                     <hr />
@@ -94,16 +116,40 @@ const ProductDetail = () => {
                 <br />
                 <hr />
                 <br />
-                <p>Customer Review :</p>
-                {
-                    item?.Review?.map( (item:any) => {
-                        return (
-                            <div>
-                                {item?.review}
-                            </div>
-                        )
-                    })
-                }
+                <div>
+                    <p className="font-bold">Reviews:</p>
+                    {
+                                    item?.Review?.map((review:any) => {
+                                        return (
+                                            <div className="w-full h-auto bg-gray-100 px-2 mb-2 text-sm pb-2">
+                                                
+                                                <div className="flex items-center justify-between">
+                                                    
+                                                    <p className="text-sm">{review?.review}</p>
+                                                    <br />
+                                                    <br />  
+                                                    <div>
+                                                        <input className="px-2" placeholder="give reply here..." type="text" onChange={(e) => setReplys(e.target.value)}/>
+                                                        <button onClick={(e:any) => handleReply(e,review?.reviewId)} className="bg-blue-500 text-white p-1 cursor-pointer ml-2 font-bold">Reply</button>
+                                                    </div>
+                                                </div>
+                                                <p>Replies:</p>
+                                                <br />
+                                                {  
+                                                    review?.Replay?.map((reply:any) => {
+                                                        return (
+                                                            <div style={{borderLeft: '2px solid gray' }} className="w-full min-h-[50px]  px-2 text-sm relative">
+                                                                <p className="text-sm absolute bottom-0">{reply?.replay}</p>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        )
+                                    })
+                    }                
+                                 
+                </div>
                 <div>
 
                 </div>
@@ -116,7 +162,8 @@ const ProductDetail = () => {
                             findRelatedProductData?.map((item:any) => {
                                 return (
                                     <div className="relative w-[150px] h-[150px] bg-green-100 m-1 flex items-center justify-center">
-                                        <p onClick={() => navigate(`/products/${item?.productId}`)} className="font-bold bg-opacity-50 bg-gray-200 w-full text-center cursor-pointer">{item?.productName}</p>
+                                        <img className="absolute w-full h-full" src={item?.images[0]} alt="" />
+                                        <p onClick={() => navigate(`/products/${item?.productId}`)} className="font-bold bg-opacity-50 bg-gray-200 w-full text-center cursor-pointer z-10">{item?.productName}</p>
                                         <p className="absolute bottom-0 text-red-700 font-bold bg-opacity-50 bg-gray-200 w-full text-center">{item?.price}</p>
                                     </div>
                                 )

@@ -5,7 +5,7 @@ export const vendorDashMenu = [
   },
   {
     name: "Product Reviews",
-    link: "/vendorDashboard/productReviews",
+    link: "/vendorDashboard/vendorReviews",
   },
   {
     name: "Order History",
