@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import useUserFromToken from "../../data-middleware/useUserFromToken";
 import { useGetFollowData, usePostFollowData } from "../../data-middleware/useFollowsData";
 import { toast } from "react-toastify";
+import useGetPurchasedProductDataWithId from "../../data-middleware/useGetPurchasedProductDataWithId";
+import ModalCart from "../dashboard/vendorDashRoutes/ModalCart";
 
 
 const Vendor = () => {
 
-    
+    const [open, setOpen] = useState<boolean>(false);
     
     const {decoded} = useUserFromToken()
 
@@ -30,16 +32,28 @@ const Vendor = () => {
 
     const findSelectedProduct = vendor?.product?.find((f:any) => f?.productId === productId)
 
+    const { allPurcasedProductDataWithId } = useGetPurchasedProductDataWithId(
+        decoded as string
+      );
+
+    const checkSameVendor = allPurcasedProductDataWithId?.data?.find((f:any) => f?.vendorId === vendorId )
+
     const {addToCartData, isPending} = usePostPurchaseProductData()
-
+    const [cartInfo, setCartInfo] = useState<any>({
+        userId: '',
+        productId: '',
+        vendorId: '',
+        productName: '',
+        details: '',
+        price:'',
+        quantity:'',
+        totalPrice: '',
+        discount: '',
+        category:'',
+        purchased:''
+    })
+    console.log('cart-info:', cartInfo)
     const handleAddToCart = (details:string, price:number, discount:number, category:string, productName:string, prodId:string) => {
-        
-        if(!decoded){
-            toast.error('Please Login First');
-            navigate('/login')
-            return
-        }
-
 
         setCartId(prodId)
         const newAddToCartData = {
@@ -55,6 +69,21 @@ const Vendor = () => {
             category,
             purchased: false
         }
+
+        if(!checkSameVendor?.vendorId){
+            setOpen(true)
+            setCartInfo(newAddToCartData)
+            return
+        }
+        
+        if(!decoded){
+            toast.error('Please Login First');
+            navigate('/login')
+            return
+        }
+
+
+        
 
         console.log(newAddToCartData);
         addToCartData(newAddToCartData)
@@ -89,7 +118,7 @@ const Vendor = () => {
 
     const getUserFromAllVendor = getFollowData?.data?.filter((f:any) => f?.userId === userId);
     const getVendorFromUser = getUserFromAllVendor?.find((f:any) => f?.vendorId === vendorId);
-    console.log(getVendorFromUser?.vendorId);
+    console.log(decoded);
 
     const [isVendorFollows, setIsVendorFollows] = useState(false);
 
@@ -106,7 +135,7 @@ const Vendor = () => {
 
 
     return (
-        <div className="w-[100%] text-sm">
+        <div className="w-[100%] text-sm relative">
             <div className="w-[1000px] bg-gray-100 mx-auto p-2 flex">
                 <div className="w-[400px] h-[150px] bg-gray-200 flex">
                     <div className="w-[150px] h-full bg-gray-300">
@@ -163,6 +192,9 @@ const Vendor = () => {
                         }
                     </div>
                 </div>  
+            </div>
+            <div className={`absolute top-0 z-10 w-full h-[100vh] bg-black bg-opacity-50 flex items-center justify-center ${open ? 'block' : 'hidden'}`}>
+                <ModalCart setOpen={setOpen} cartInfo={cartInfo} />
             </div>
         </div>
     );

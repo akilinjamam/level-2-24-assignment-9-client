@@ -148,6 +148,18 @@ export const fetchAddToCartProductData = async (data: any) => {
     console.log(error);
   }
 };
+export const fetchReplaceCartProductData = async (data: any) => {
+  try {
+    const response = await axios.post(
+      `https://level-2-24-assignment-9-server.vercel.app/api/purchaseProducts/replace-cart`,
+      data
+    );
+    const result = response?.data;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const fetchGetAddToCartProductData = async (id: any) => {
   try {

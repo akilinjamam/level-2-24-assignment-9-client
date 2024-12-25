@@ -25,8 +25,6 @@ const ProductDetail = () => {
 
     const getLastDate = getLastDatesForYear(2024)
 
-    
-
 
     console.log(getLastDate[getMonth]);
     console.log(productId);
