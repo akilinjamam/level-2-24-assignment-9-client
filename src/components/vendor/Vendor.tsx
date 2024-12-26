@@ -27,7 +27,7 @@ const Vendor = () => {
     
     const {vendorData, refetch} = useGetVendorDataWithId(vendorId as string);
 
-    console.log(vendorData?.data);
+   
     const vendor = vendorData?.data;
 
     const findSelectedProduct = vendor?.product?.find((f:any) => f?.productId === productId)
@@ -37,7 +37,8 @@ const Vendor = () => {
       );
 
     const checkSameVendor = allPurcasedProductDataWithId?.data?.find((f:any) => f?.vendorId === vendorId )
-
+    console.log(checkSameVendor?.vendorId)
+    console.log(allPurcasedProductDataWithId?.data?.length)
     const {addToCartData, isPending} = usePostPurchaseProductData()
     const [cartInfo, setCartInfo] = useState<any>({
         userId: '',
@@ -52,7 +53,7 @@ const Vendor = () => {
         category:'',
         purchased:''
     })
-    console.log('cart-info:', cartInfo)
+  
     const handleAddToCart = (details:string, price:number, discount:number, category:string, productName:string, prodId:string) => {
 
         setCartId(prodId)
@@ -70,22 +71,19 @@ const Vendor = () => {
             purchased: false
         }
 
-        if(!checkSameVendor?.vendorId){
-            setOpen(true)
-            setCartInfo(newAddToCartData)
-            return
+        if(allPurcasedProductDataWithId?.data?.length > 0){
+            if(!checkSameVendor?.vendorId){
+                setOpen(true)
+                setCartInfo(newAddToCartData)
+                return
+            }
         }
-        
+
         if(!decoded){
             toast.error('Please Login First');
             navigate('/login')
             return
         }
-
-
-        
-
-        console.log(newAddToCartData);
         addToCartData(newAddToCartData)
     }
 
@@ -118,7 +116,7 @@ const Vendor = () => {
 
     const getUserFromAllVendor = getFollowData?.data?.filter((f:any) => f?.userId === userId);
     const getVendorFromUser = getUserFromAllVendor?.find((f:any) => f?.vendorId === vendorId);
-    console.log(decoded);
+
 
     const [isVendorFollows, setIsVendorFollows] = useState(false);
 

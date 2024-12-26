@@ -47,6 +47,7 @@ const PurchaseHistory = () => {
         e.preventDefault();
         const newData = {
             productId: productId,
+            userId: decoded,
             review: reviews,
             purchasedProductId:purchasedProductId
         }
@@ -64,6 +65,7 @@ const PurchaseHistory = () => {
 
         const newData = {
             replay: newReplay,
+            userId: decoded,
             reviewId
         }
 

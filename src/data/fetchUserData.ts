@@ -24,7 +24,7 @@ export const fetchPostLoginData = async (data: any) => {
     console.log(response?.data);
     return result;
   } catch (error: any) {
-    console.log(error?.response?.data?.message);
+    console.log(error);
     return error?.response?.data?.message;
   }
 };
@@ -80,6 +80,47 @@ export const fetchRecoveryPasswordData = async (data: any, token: any) => {
           Authorization: token,
         },
       }
+    );
+    const result = response?.data;
+    console.log(response?.data);
+    return result;
+  } catch (error: any) {
+    console.log(error?.response?.data?.message);
+    return error?.response?.data?.message;
+  }
+};
+
+export const fetchGetUserData = async () => {
+  try {
+    const response = await axios.get(
+      `https://level-2-24-assignment-9-server.vercel.app/api/users`
+    );
+    const result = response?.data;
+    console.log(response?.data);
+    return result;
+  } catch (error: any) {
+    console.log(error?.response?.data?.message);
+    return error?.response?.data?.message;
+  }
+};
+
+export const fetchUpdateUserData = async (id: string) => {
+  try {
+    const response = await axios.patch(
+      `https://level-2-24-assignment-9-server.vercel.app/api/users/update-user/${id}`
+    );
+    const result = response?.data;
+    console.log(response?.data);
+    return result;
+  } catch (error: any) {
+    console.log(error?.response?.data?.message);
+    return error?.response?.data?.message;
+  }
+};
+export const fetchDeleteUserData = async (id: string) => {
+  try {
+    const response = await axios.delete(
+      `https://level-2-24-assignment-9-server.vercel.app/api/users/delete-user/${id}`
     );
     const result = response?.data;
     console.log(response?.data);

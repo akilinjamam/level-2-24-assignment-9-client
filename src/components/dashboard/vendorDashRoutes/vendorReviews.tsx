@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useGetProductData from "../../../data-middleware/useProductData";
 import useUserFromToken from "../../../data-middleware/useUserFromToken";
 import { useGetVendorDataWithUserId } from "../../../data-middleware/useVendorData";
@@ -10,8 +10,9 @@ const VendorReviews = () => {
 
     const [replys, setReplys] = useState('')
 
-    const {decoded} = useUserFromToken()
-
+    const {decoded, userType} = useUserFromToken()
+    
+    const [mainData, setMainData] = useState([]);
 
     const {vendorData} = useGetVendorDataWithUserId(decoded as string);
     const getVendorId = vendorData?.data?.vendorId;
@@ -41,6 +42,7 @@ const VendorReviews = () => {
 
         const newData = {
             replay: newReplays,
+            userId: decoded,
             reviewId
         }
 
@@ -48,10 +50,22 @@ const VendorReviews = () => {
 
     }
 
+    useEffect(() => {
+        if (userType === "ADMIN") {
+          setMainData(allProductData?.data || []);
+        } else if (userType === "VENDOR" && getVendorId) {
+          const vendorProducts = allProductData?.data?.filter(
+            (f: any) => f?.vendorId === getVendorId
+          );
+          setMainData(vendorProducts || []);
+        }
+      }, [userType, allProductData, getVendorId]);
+
+
     return (
         <div className="w-full min-h-20 bg-gray-200 mt-1">
             {
-                vendorsProductData?.map((product:any) => (
+                mainData?.map((product:any) => (
                     <div className="w-full h-auto bg-gray-100 p-2 mb-2">
                         <div className="w-full h-auto flex">
                             <div className="w-[200px] h-[200px] bg-gray-200">

@@ -5,12 +5,13 @@ import { MyContext } from "../../context/MyContext";
 import Modal from "./vendorDashRoutes/Modal";
 import { useDeleteProductData } from "../../data-middleware/useDeleteProductData";
 import useGetProductData from "../../data-middleware/useProductData";
+import useUserFromToken from "../../data-middleware/useUserFromToken";
 
 
 const VendorDashboard = () => {
 
     const {open, setOpen, productName, id} = useContext(MyContext)
-
+    const {userType} = useUserFromToken()
 
     const {refetch} = useGetProductData('', '', '')
     
@@ -32,12 +33,17 @@ const VendorDashboard = () => {
                     <br />
                     <ul className="text-sm leading-6">
                         {
-                            vendorDashMenu?.map((item, index) => (
+                            vendorDashMenu?.map((item) => (
                                 <NavLink to={item?.link} className={({isActive}) => isActive ? 'text-blue-500 font-bold' : ''}>
-                                    <li>{index+1}. {item?.name}</li>
+                                    <li>.{item?.name}</li>
                                 </NavLink>
                             ))
                         }
+                        
+                        
+                        <NavLink style={{display: `${userType === 'VENDOR' ? 'block' : 'none'}`}} to="/vendorDashboard/vendorProfile" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : ''}><li>.profile</li></NavLink>
+
+                        <NavLink style={{display: `${userType === 'ADMIN' ? 'block' : 'none'}`}} to="/vendorDashboard/manageUsers" className={({isActive}) => isActive ? 'text-blue-500 font-bold' : ''}><li>.Manage Users</li></NavLink>
                     </ul>
                 </div>
                 <div className="w-[800px] bg-gray-100 px-2 py-1 overflow-hidden overflow-y-scroll">

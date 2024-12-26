@@ -15,8 +15,14 @@ export const fetchGetVendorDataWithId = async (id: string) => {
 
 export const fetchGetVendorDataWithUserId = async (id: string) => {
   try {
+    const token = localStorage.getItem("userToken");
     const response = await axios.get(
-      `https://level-2-24-assignment-9-server.vercel.app/api/vendors/get-with-user-id/${id}`
+      `https://level-2-24-assignment-9-server.vercel.app/api/vendors/get-with-user-id/${id}`,
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
     );
     const result = response?.data;
     return result;

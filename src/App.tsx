@@ -26,6 +26,8 @@ import PurchaseHistory from "./components/purchaseHistory/PurchaseHistory"
 import VendorReviews from "./components/dashboard/vendorDashRoutes/vendorReviews"
 import ChangePassword from "./components/login/ChangePassword"
 import RecoveryPassword from "./components/login/RecoveryPassword"
+import MonitorTransection from "./components/dashboard/vendorDashRoutes/MonitorTransection"
+import ManageUsers from "./components/dashboard/vendorDashRoutes/ManageUsers"
 function App() {
   const router = createBrowserRouter([
     {
@@ -116,6 +118,14 @@ function App() {
         {
           path: 'vendorReviews',
           element: <VendorReviews/>
+        },
+        {
+          path: 'monitor-transection',
+          element: <MonitorTransection/>
+        },
+        {
+          path: 'manageUsers',
+          element: <ManageUsers/>
         },
       ]
     },

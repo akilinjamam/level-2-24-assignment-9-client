@@ -4,12 +4,14 @@ import { DecodedToken } from '../components/dashboard/vendorDashRoutes/VendorPro
 const useUserFromToken = () => {
    const token = localStorage.getItem('userToken');
     let decoded:string | undefined;
+    let userType: string | undefined
     if(token){
         const decode = jwtDecode<DecodedToken>(token);
         decoded = decode?.userId
+        userType = decode?.userType
     }
 
-    return {decoded}
+    return {decoded, userType}
 };
 
 export default useUserFromToken;
