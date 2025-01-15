@@ -33,6 +33,18 @@ export const fetchGetProductDataWithCategory = async () => {
   }
 };
 
+export const fetchGetLastProducts = async () => {
+  try {
+    const response = await axios.get(
+      `https://level-2-24-assignment-9-server.vercel.app/api/products/get-last-recents`
+    );
+    const result = response?.data;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const fetchGetProductDataWithFlashSale = async () => {
   try {
     const response = await axios.get(
@@ -120,8 +132,9 @@ export const fetchPostProductData = async (data: any) => {
     );
     const result = response?.data;
     return result;
-  } catch (error) {
+  } catch (error: any) {
     console.log(error);
+    return error?.response?.data?.message;
   }
 };
 

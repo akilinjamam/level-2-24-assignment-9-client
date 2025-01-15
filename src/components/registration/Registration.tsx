@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { registrationInput } from "./inputFields";
 import useUserPostData from "../../data-middleware/useUserPostData";
+import { MyContext } from "../../context/MyContext";
 
 const Registration = () => {
 
@@ -23,8 +24,11 @@ const Registration = () => {
         postUserData(registration)
     }
 
+    const {darkMode} = useContext(MyContext)
+
     return (
-        <div className="w-[1000px] bg-gray-100 mx-auto h-auto px-3 py-3 ">
+        <div className={`${darkMode ? 'bg-gray-700' : 'bg-white'} h-[100vh]`}>
+            <div className="w-[1000px] bg-gray-100 mx-auto h-auto px-3 py-3 ">
             <p className="text-2xl font-bold">Registration:</p>
             <br />
             <hr />
@@ -56,6 +60,7 @@ const Registration = () => {
                 <br /><br />
                 <input className="w-[300px] bg-blue-500 text-white font-bold cursor-pointer" type="submit" value={`${isPending ? 'loading...' : 'Registration'}`} />
             </form>
+        </div>
         </div>
     );
 };

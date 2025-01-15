@@ -12,6 +12,17 @@ export const fetchGetVendorDataWithId = async (id: string) => {
     console.log(error);
   }
 };
+export const fetchGetAllVendors = async () => {
+  try {
+    const response = await axios.get(
+      `https://level-2-24-assignment-9-server.vercel.app/api/vendors`
+    );
+    const result = response?.data;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const fetchGetVendorDataWithUserId = async (id: string) => {
   try {

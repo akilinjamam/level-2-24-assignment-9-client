@@ -52,8 +52,9 @@ const OrderSummery = () => {
                             <p>(-) Discount :</p>
                             <p>{cartInfo?.discount}</p>
                         </div>
+                        <hr />
                         <div className="flex items-center justify-between">
-                            <p>(-) Discount :</p>
+                            <p>Total :</p>
                             <p> {(cartInfo?.price * cartInfo?.quantity) - cartInfo?.discount}</p>
                         </div>
 

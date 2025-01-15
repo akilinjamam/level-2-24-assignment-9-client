@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useOrderHistoryData from "../../data-middleware/useOrderHistoryData";
 import useUserFromToken from "../../data-middleware/useUserFromToken";
 import useRatingData from "../../data-middleware/useRatingData";
 import { toast } from "react-toastify";
 import useReviewsData from "../../data-middleware/useReviewsData";
 import useReplayData from "../../data-middleware/useReplayData";
+import { MyContext } from "../../context/MyContext";
 
 const PurchaseHistory = () => {
 
@@ -73,9 +74,10 @@ const PurchaseHistory = () => {
         postReplayData(newData)
     }
 
-
+    const {darkMode} = useContext(MyContext)
     return (
-        <div className="w-[1000px] mx-auto bg-gray-100 px-2 py-2 ">
+        <div className={`w-[100%] h-[100vh]  ${darkMode ? 'bg-gray-700' : 'bg-gray-200'}`}>
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto ${darkMode ? 'bg-gray-500' : 'bg-gray-100'} px-2 py-2 `}>
             <p className="font-bold" >Order History :</p>
             <hr />
             <br />
@@ -120,7 +122,7 @@ const PurchaseHistory = () => {
                                     <div>
                                         <form action="" onSubmit={(e) =>handleReviews(item?.productId, item?.purchasedProductId, e)}>
                                             <label className="mr-2" htmlFor="">Give Review: </label>
-                                            <input className="w-[300px] px-2" type="text" placeholder="Write Review" onChange={(e) => setReviews(e.target.value) }/>
+                                            <input className="lg:w-[300px] md:w-[300px] sm:w-full xsm:w-full px-2" type="text" placeholder="Write Review" onChange={(e) => setReviews(e.target.value) }/>
                                             <input className="bg-blue-500 text-white p-1 cursor-pointer ml-2 font-bold" type="submit" value={isPendingReview ? 'Reviewing...': 'Submit Review'}/>
                                         </form>
                                     </div>
@@ -189,6 +191,7 @@ const PurchaseHistory = () => {
                 </p>
             }
             
+            </div>
         </div>
     );
 };

@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import useGetProductData from "../../data-middleware/useProductData";
 
 const AllProductsWithCategory = () => {
+
+    const navigate = useNavigate();
 
     const {id} =useParams()
 
@@ -18,7 +20,7 @@ const AllProductsWithCategory = () => {
                allProducts?.map((product:any) => 
                 <div className="w-[150px] h-[150px] bg-green-200 m-1 flex items-center justify-center relative cursor-pointer">
                <img className="absolute top-0 w-full h-full" src={product?.images[1]} alt="" />
-               <p className="z-10 bg-gray-400 bg-opacity-50 p-1 font-bold text-green-300">{product?.category}</p>
+               <p onClick={() => navigate(`/products/${product?.productId}`)} className="z-10 bg-gray-400 bg-opacity-50 p-1 font-bold text-green-300">{product?.category}</p>
            </div>
            ) 
             }

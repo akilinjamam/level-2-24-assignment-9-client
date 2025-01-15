@@ -30,3 +30,30 @@ export const useUpdateProductData = (refetch:any)  => {
     return {updateProductData, isPending, isError, isSuccess, error}
     
 };
+
+export const useUpdateRecentProductData = (refetch:any)  => {
+
+  
+
+    const {mutate: updateProductData, isPending, isError, isSuccess, error} = useMutation({
+        mutationKey: ['fetchUpdateProductData'],
+        mutationFn: (data: any) => fetchUpdateProductDataWithId(data?.id, data?.data),
+        onSuccess: (data) => {
+           if(data?.success){
+            console.log(data);
+            refetch()
+           }
+           if(!data?.success){
+            toast.error(data)
+        }
+        },
+        onError: (error:any) => {
+            console.log(error)
+            toast.error(error.message)
+        }
+    })
+
+
+    return {updateProductData, isPending, isError, isSuccess, error}
+    
+};

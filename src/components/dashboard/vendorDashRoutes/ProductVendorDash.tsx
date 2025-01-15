@@ -6,9 +6,12 @@ import { useGetVendorDataWithUserId } from "../../../data-middleware/useVendorDa
 import useGetProductData from "../../../data-middleware/useProductData";
 import { useContext, useEffect, useState } from "react";
 import { MyContext } from "../../../context/MyContext";
+import Pagination from "../../../functionalComponents/pagination/Pagination";
 
 const ProductVendorDash = () => {
-  const { setOpen, setId, setProductName } = useContext(MyContext);
+
+
+  const { setOpen, setId, setProductName, setPaginatedDataContainer, paginatedDataContainer, setPaginatedIndex } = useContext(MyContext);
   const [mainData, setMainData] = useState<any[]>([]);
   const navigate = useNavigate();
 
@@ -52,10 +55,10 @@ const ProductVendorDash = () => {
       </div>
       <hr className="mt-2" />
       {!isLoading ? (
-        mainData?.slice()
+        paginatedDataContainer?.slice()
           ?.reverse()
           ?.map((product: any) => (
-            <div className="flex w-full h-[300px] bg-gray-200 mb-3" key={product?.productId}>
+            <div className="flex flex-wrap w-full lg:h-[300px] md:h-[400px] sm:h-auto xsm:h-auto bg-gray-200 mb-3" key={product?.productId}>
               <div className="w-[300px] h-full">
                 <div className="w-[300px] h-[200px] bg-gray-300">
                   <img className="w-full h-full" src={product?.images[0]} alt="" />
@@ -110,6 +113,13 @@ const ProductVendorDash = () => {
       ) : (
         <p>Loading...</p>
       )}
+
+<div className=" h-[50px]  w-[1000px] mx-auto">
+                <div className="w-ful">
+                    <br />
+                    <Pagination showData={mainData} setPaginatedDataContainer={setPaginatedDataContainer} setPaginatedIndex={setPaginatedIndex} limit={5} />
+                </div>
+            </div>
     </div>
   );
 };

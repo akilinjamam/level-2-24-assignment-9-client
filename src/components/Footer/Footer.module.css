@@ -1,0 +1,7 @@
+@media screen and (max-width: 640px) {
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+}

@@ -28,6 +28,11 @@ import ChangePassword from "./components/login/ChangePassword"
 import RecoveryPassword from "./components/login/RecoveryPassword"
 import MonitorTransection from "./components/dashboard/vendorDashRoutes/MonitorTransection"
 import ManageUsers from "./components/dashboard/vendorDashRoutes/ManageUsers"
+import Overview from "./components/dashboard/vendorDashRoutes/Overview"
+import CouponManagement from "./components/dashboard/vendorDashRoutes/CouponManagement"
+import UpdateCoupon from "./components/dashboard/vendorDashRoutes/UpdateCoupon"
+import AllRecentProducts from "./components/recentProduct/AllRecentProducts"
+import NewsLetter from "./components/dashboard/vendorDashRoutes/NewsLetter"
 function App() {
   const router = createBrowserRouter([
     {
@@ -91,10 +96,18 @@ function App() {
       element: <Layout><PurchaseHistory/></Layout>
     },
     {
+      path: '/recentProduct',
+      element: <Layout><AllRecentProducts/></Layout>
+    },
+    {
       path: '/vendorDashboard',
       element: <Layout><VendorDashboard/></Layout>,
       children: [
-        {index: true, element:<ProductVendorDash/> },
+        {index: true, element:<Overview/> },
+        {
+          path: 'productVendorDash',
+          element: <ProductVendorDash/>
+        },
         {
           path: 'vendorProfile',
           element: <VendorProfile/>
@@ -127,6 +140,18 @@ function App() {
           path: 'manageUsers',
           element: <ManageUsers/>
         },
+        {
+          path: 'couponManagement',
+          element: <CouponManagement/>
+        },
+        {
+          path: 'updateCoupon/:id',
+          element: <UpdateCoupon/>
+        },
+        {
+          path: 'newsletter',
+          element: <NewsLetter/>
+        },
       ]
     },
   ])
@@ -153,6 +178,7 @@ type TCartInfo = {
   discount: number;
 }
   const [open, setOpen] = useState<boolean | undefined>(false);
+  const [productId, setProductId] = useState<string>('');
   const [id, setId] = useState<string | undefined>('');
   const [productName, setProductName] = useState<string | undefined>('');
   const [refetchData, setRefetchDta] = useState<any>();
@@ -162,11 +188,20 @@ type TCartInfo = {
     quantity: 0,
     price: 0,
     discount: 0
-  })
+  });
 
+  const [userInfo, setUserInfo] = useState<any>({
+    userName: '',
+    phoneNumber: '',
+  });
+
+  const [paginatedDataContainer, setPaginatedDataContainer] = useState<any>([]);
+  const [paginatedIndex, setPaginatedIndex] = useState<any>([])
+  const [darkMode, setDarkMode] = useState<boolean>(false);
+  console.log('dark',darkMode);
   return (
     <>
-      <MyContext.Provider value={{open, setOpen, id, setId, productName, setProductName, setRefetchDta, refetchData, cartInfo, setCartInfo}}>
+      <MyContext.Provider value={{open, setOpen, id, setId, productName, setProductName, setRefetchDta, refetchData, cartInfo, setCartInfo, paginatedDataContainer, setPaginatedDataContainer, paginatedIndex, setPaginatedIndex, userInfo, setUserInfo, productId, setProductId, darkMode, setDarkMode}}>
           <RouterProvider router={router}/>
       </MyContext.Provider>
     </>

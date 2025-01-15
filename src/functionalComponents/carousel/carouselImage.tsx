@@ -6,18 +6,18 @@ import img5 from '../../images/daraz-5.jpg';
 
 export const CarouselImages = [
     {
-        img: <img src={img1} alt="" />
+        img: <img  src={img1} alt="" />
     },
     {
-        img: <img src={img2} alt="" />
+        img: <img  src={img2} alt="" />
     },
     {
-        img: <img src={img3} alt="" />
+        img: <img  src={img3} alt="" />
     },
     {
-        img: <img src={img4} alt="" />
+        img: <img  src={img4} alt="" />
     },
     {
-        img: <img src={img5} alt="" />
+        img: <img  src={img5} alt="" />
     },
 ]

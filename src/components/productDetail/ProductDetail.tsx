@@ -5,9 +5,10 @@ import calculateRating from "../../calculateRating/calculateRating";
 import getLastDatesForYear from "../../calculateRating/getLastDate";
 import useGetProductDataWithFlashId from "../../data-middleware/useGetProductDataWithId";
 import { calculateTotalPrice } from "../../functionalComponents/calculateTotal/calculateTotal";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useGetProductData from "../../data-middleware/useProductData";
 import useReplayData from "../../data-middleware/useReplayData";
+import { MyContext } from "../../context/MyContext";
 
 
 const ProductDetail = () => {
@@ -44,9 +45,9 @@ const ProductDetail = () => {
 
     const findRelatedProductData = findProductData?.filter((f:any) => f?.productId !== productId)
 
-    console.log(findRelatedProductData)
-
+    
     const getAllRatings = item?.Rating?.map((rate:any) => rate?.rating);
+    console.log(getAllRatings?.length);
 
    const averageRating = Math.ceil(calculateTotalPrice(getAllRatings)/item?.Rating?.length);
 
@@ -67,12 +68,13 @@ const ProductDetail = () => {
          postReplayData(newData)
    }
     
+   const {darkMode} = useContext(MyContext)
     
     return (
-        <div className="w-full bg-white">
-            <div className="w-[1000px] mx-auto bg-gray-100 m-6">
-                <div className="w-full h-[400px] flex">
-                    <div className="w-[35%] h-full bg-gray-200 p-2">
+        <div className={`${darkMode ? 'bg-gray-700' : 'bg-white'} h-[100vh]`}>
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto  m-6  ${darkMode ? 'bg-gray-300' : 'bg-gray-100'}`}>
+                <div className="w-full lg:h-[400px] md:h-[400px] sm:h-auto xsm:h-auto flex flex-wrap">
+                    <div className="lg:w-[35%] md:w-[35%] sm:w-full xsm:w-full h-full bg-gray-200 p-2">
                         <div className="w-[full] h-[300px] bg-gray-100">
                             <img className="w-full h-full" src={item?.images[selectImg]} alt="" />
                         </div>
@@ -87,7 +89,7 @@ const ProductDetail = () => {
                             }
                         </div>
                     </div>
-                    <div className="w-[65%] h-full p-2 text-sm leading-6 ">
+                    <div className="lg:w-[65%] md:w-[65%] sm:w-full xsm:w-full h-full p-2 text-sm leading-6 ">
                     <div>
                                     <p className="text-3xl font-semibold">{item?.productName}</p>
                                     <br />
@@ -106,17 +108,23 @@ const ProductDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-[1000px] mx-auto bg-gray-100 m-6 p-2">
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto bg-gray-100 m-6 p-2 ${darkMode ? 'bg-gray-300' : 'bg-gray-100'}`}>
                 <div className="w-full h-auto">
                     <p className="font-bold">Product Details:</p>
                     <p>{item?.details}</p>
+                </div>
+                <br />
+                <div className="w-full h-auto">
+                    <p className="font-bold">Average Ratings:</p>
+                    <p>{getAllRatings?.length > 0 ? calculateRating(averageRating)?.map(_rating => <i className="uil uil-star text-yellow-400"></i>) : <span className="text-red-500 text-sm">Customers not given any average ratings yet...</span> }</p>
                 </div>
                 <br />
                 <hr />
                 <br />
                 <div>
                     <p className="font-bold">Reviews:</p>
-                    {
+                    { item?.Review?.lenght > 0
+                        ?
                                     item?.Review?.map((review:any) => {
                                         return (
                                             <div className="w-full h-auto bg-gray-100 px-2 mb-2 text-sm pb-2">
@@ -145,6 +153,8 @@ const ProductDetail = () => {
                                             </div>
                                         )
                                     })
+                        :
+                        <p className="text-red-500 text-sm">No review Added...</p>
                     }                
                                  
                 </div>
@@ -152,7 +162,7 @@ const ProductDetail = () => {
 
                 </div>
             </div>
-            <div className="w-[1000px] mx-auto bg-gray-100 m-6 p-2">
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto bg-gray-100 m-6 p-2 ${darkMode ? 'bg-gray-300' : 'bg-gray-100'}`}>
                 <div className="w-full h-auto">
                     <p className="font-bold">Related Products:</p>
                     <div className="flex flex-wrap">

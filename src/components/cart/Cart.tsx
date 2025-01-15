@@ -9,7 +9,7 @@ import useDeleteAddtoCartData from "../../data-middleware/useDeleteAddtoCartData
 
 const Cart = () => {
 
-    const {cartInfo, setCartInfo, setProductName} = useContext(MyContext);
+    const {cartInfo, setCartInfo, setProductName, setProductId} = useContext(MyContext);
     
 
   const token = localStorage.getItem("userToken");
@@ -69,6 +69,7 @@ const Cart = () => {
   const handleProccedToCheckOut = () => {
     console.log(cartInfo);
     setProductName(allPurcasedProductDataWithId?.data[selectIndex]?.productName)
+    setProductId(allPurcasedProductDataWithId?.data[selectIndex]?.productId)
 }
 
     const {deleteAddToCartData, isPending, error} = useDeleteAddtoCartData(refetch)
@@ -76,13 +77,14 @@ const Cart = () => {
         deleteAddToCartData(prodId)
     }
     console.log(error);
+    const {darkMode} = useContext(MyContext);
 
   return (
-    <div className="w-[100%] bg-white">
-      <div className="w-[1000px] mx-auto">
+    <div className={`${ darkMode ? 'bg-gray-700' : 'bg-gray-200'} h-[100vh]`}>
+      <div className="lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full  mx-auto">
         <br />
-        <div className="w-[100%] flex items-start justify-between text-sm">
-          <div className="w-[70%] h-auto ">
+        <div className="w-[100%] lg:flex lg:items-start lg:justify-between md:flex md:items-start md:justify-between text-sm">
+          <div className="lg:w-[70%] md:w-[70%] sm:w-full xsm:w-full h-auto ">
             {allPurcasedProductDataWithId?.data?.length > 0 ? (
               allPurcasedProductDataWithId?.data?.map(
                 (item: any, index: number) => (
@@ -125,7 +127,7 @@ const Cart = () => {
               </div>
             )}
           </div>
-          <div className="w-[29.3%] h-[300px] bg-gray-100 px-2 relative">
+          <div className="w-[29.3%] lg:h-[300px] md:w-[300px] sm:w-full xsm:w-full bg-gray-100 px-2 relative">
             <p className="text-xl font-bold">Order Summary</p>
             <hr />
             <br />

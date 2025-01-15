@@ -3,8 +3,14 @@ import { Link } from "react-router";
 import { MyContext } from "../../context/MyContext";
 import { toast } from "react-toastify";
 
+import useGetProductDataWithFlashId from "../../data-middleware/useGetProductDataWithId";
+
 const Checkout = () => {
-    const {productName, cartInfo, setCartInfo} = useContext(MyContext)
+    const {productName, cartInfo, setCartInfo, userInfo, productId} = useContext(MyContext)
+    
+    const {allProductDataWithId} = useGetProductDataWithFlashId(productId as string)
+
+    console.log(allProductDataWithId?.data?.couponCode)
 
     const [coupon, setCoupon] = useState('');
     const [gotCoupon, setGotCoupon] = useState(false);
@@ -12,9 +18,9 @@ const Checkout = () => {
 
     const handleCoupon = () => {
         if(!gotCoupon){
-            if(coupon === '1234'){
+            if(coupon === allProductDataWithId?.data?.couponCode){
                 setGotCoupon(true)
-                setCartInfo({...cartInfo, discount:cartInfo?.discount + couponDiscount})
+                setCartInfo({...cartInfo, discount:cartInfo?.discount + allProductDataWithId?.data?.couponValue})
             }
         }else{
             toast.error('you have already applied coupon')
@@ -26,7 +32,6 @@ const Checkout = () => {
     },[couponDiscount])
 
 
-
     return (
         <div className="w-[100%] bg-white">
             <div className="w-[1000px]  mx-auto">
@@ -34,6 +39,9 @@ const Checkout = () => {
                 <div className="w-[100%] flex items-start justify-between text-sm">
                     <div className="w-[70%] h-auto ">
                         <div className="w-full h-[200px] bg-gray-100 mb-2 px-2 py-1">
+                            <p className="text-sm font-bold">Customer Name : {userInfo?.userName}</p>
+                            <p className="text-sm font-bold">Phone Number : {userInfo?.phoneNumber}</p>
+                            <br />
                             <p>Product Name: {productName}</p>
                             <p>Quantity: {cartInfo?.quantity}</p>
                             <p>Price: {cartInfo?.price}</p>
@@ -42,7 +50,7 @@ const Checkout = () => {
                     </div>
                     <div className="w-[29.3%] h-[300px] bg-gray-100 px-2 relative">
                         <p className="text-xl font-bold">Promotion</p>
-                        <p className="text-sm font-bold text-green-500">apply coupon code: 1234 and get 15 tk discount</p>
+                        <p className="text-sm font-bold text-green-500">apply coupon code:{allProductDataWithId?.data?.couponCode}  and get {allProductDataWithId?.data?.couponValue}  tk discount</p>
                         <br />
                         <div className="flex items-center justify-between">
                             <div>

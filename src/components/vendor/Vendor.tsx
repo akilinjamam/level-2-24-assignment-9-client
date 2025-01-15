@@ -2,19 +2,22 @@
 import { useNavigate, useParams } from "react-router";
 import { useGetVendorDataWithId } from "../../data-middleware/useVendorData";
 import usePostPurchaseProductData from "../../data-middleware/usePostPurchaseProductData";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useUserFromToken from "../../data-middleware/useUserFromToken";
 import { useGetFollowData, usePostFollowData } from "../../data-middleware/useFollowsData";
 import { toast } from "react-toastify";
 import useGetPurchasedProductDataWithId from "../../data-middleware/useGetPurchasedProductDataWithId";
 import ModalCart from "../dashboard/vendorDashRoutes/ModalCart";
+import { MyContext } from "../../context/MyContext";
+
 
 
 const Vendor = () => {
 
+    const {setUserInfo, setCouponInfo, darkMode} = useContext(MyContext)
     const [open, setOpen] = useState<boolean>(false);
     
-    const {decoded} = useUserFromToken()
+    const {decoded, userType, userName, phoneNumber} = useUserFromToken()
 
     const [cartId, setCartId] = useState('')
     
@@ -22,9 +25,9 @@ const Vendor = () => {
 
     const navigate = useNavigate();
 
-    const {vendorId, productId} = useParams()
-    
-    
+    const {vendorId, productId} = useParams();
+
+        
     const {vendorData, refetch} = useGetVendorDataWithId(vendorId as string);
 
    
@@ -56,6 +59,12 @@ const Vendor = () => {
   
     const handleAddToCart = (details:string, price:number, discount:number, category:string, productName:string, prodId:string) => {
 
+        if(userType === 'VENDOR' || userType === 'ADMIN'){
+            
+            toast.error(`${userType} can not purchase product`);
+            return
+        }
+
         setCartId(prodId)
         const newAddToCartData = {
             userId,
@@ -77,6 +86,11 @@ const Vendor = () => {
                 setCartInfo(newAddToCartData)
                 return
             }
+
+            setCouponInfo({
+                couponCode: '',
+                couponValue: ''
+            })
         }
 
         if(!decoded){
@@ -84,7 +98,14 @@ const Vendor = () => {
             navigate('/login')
             return
         }
+
         addToCartData(newAddToCartData)
+        setUserInfo({
+            userName,
+            phoneNumber
+        })
+        
+       
     }
 
     const {getFollowData} = useGetFollowData()
@@ -133,8 +154,8 @@ const Vendor = () => {
 
 
     return (
-        <div className="w-[100%] text-sm relative">
-            <div className="w-[1000px] bg-gray-100 mx-auto p-2 flex">
+        <div className={`w-[100%] text-sm relative ${darkMode ? 'bg-gray-700 text-white' : 'bg-white'}`}>
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full  mx-auto p-2 flex flex-wrap ${darkMode ? 'bg-gray-300' : 'bg-gray-100'}`}>
                 <div className="w-[400px] h-[150px] bg-gray-200 flex">
                     <div className="w-[150px] h-full bg-gray-300">
                         <img className="w-full h-full" src={vendor?.logo} alt="" />
@@ -153,7 +174,7 @@ const Vendor = () => {
                     <p>{vendor?.details}</p>
                 </div>
             </div>
-            <div className="w-[1000px] mx-auto bg-gray-100 m-6 p-2">
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto  m-6 p-2 ${darkMode ? 'bg-gray-300' : 'bg-gray-100'}`}>
                 <div className="w-full h-auto">
                     <p className="font-bold">Selected Product:</p>
                     <div className="flex flex-wrap">
@@ -169,7 +190,7 @@ const Vendor = () => {
                     </div>
                 </div>  
             </div>
-            <div className="w-[1000px] mx-auto bg-gray-100 m-6 p-2">
+            <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto bg-gray-100 m-6 p-2 ${darkMode ? 'bg-gray-300' : 'bg-gray-100'}`}>
                 <div className="w-full h-auto">
                     <p className="font-bold">All Products:</p>
                     <div className="flex flex-wrap">

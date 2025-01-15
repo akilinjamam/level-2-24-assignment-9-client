@@ -14,6 +14,10 @@ export const navroutes: TNavRoutes[] = [
     link: "/purchaseHistory",
   },
   {
+    route: "Recent Product",
+    link: "/recentProduct",
+  },
+  {
     route: "Registration",
     link: "/registration",
   },

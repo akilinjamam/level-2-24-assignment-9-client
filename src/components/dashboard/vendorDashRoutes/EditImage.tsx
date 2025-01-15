@@ -60,7 +60,7 @@ const EditImage = () => {
                 }
            </div>
            <br />
-           <div className="flex">
+           <div className="flex flex-wrap">
                 {
                     allProductDataWithId?.data?.images?.map((image:any, index:number) => <img className="w-[200px] h-[200px] cursor-pointer" style={{border: `${index === selectImg ? '1px solid blue' : 'none'}`}} src={image} alt="" onClick={() => setSelectImg(index)}/> )
                 }

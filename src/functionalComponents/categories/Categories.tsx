@@ -2,9 +2,11 @@
 
 import { useNavigate } from "react-router";
 import useGetProductDataWithCategory from "../../data-middleware/useGetProductDataWithCategory";
+import { MyContext } from "../../context/MyContext";
+import { useContext } from "react";
 
 const Categories = () => {
-
+const {darkMode} = useContext(MyContext)
     const navigate = useNavigate();
 
    const {allProductDataWithCategory, isLoading} = useGetProductDataWithCategory()
@@ -12,7 +14,7 @@ const Categories = () => {
 
 
     return (
-        <div className="w-[1000px] mx-auto my-6 bg-white px-2">
+        <div className={`lg:w-[1000px] md:w-[70%] sm:w-full xsm:w-full mx-auto my-6 px-2 ${darkMode ? 'bg-gray-600': 'bg-gray-100'}`}>
             <p className="text-2xl">Categories</p>
             <div >
                 {   data?.length > 0 

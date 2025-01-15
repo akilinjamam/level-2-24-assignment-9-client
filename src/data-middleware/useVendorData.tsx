@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { fetchGetVendorDataWithId, fetchGetVendorDataWithUserId, fetchPostVendorData, fetchUpdateVendorDat, fetchUpdateVendorImgData } from "../data/fetchVendorData";
+import { fetchGetAllVendors, fetchGetVendorDataWithId, fetchGetVendorDataWithUserId, fetchPostVendorData, fetchUpdateVendorDat, fetchUpdateVendorImgData } from "../data/fetchVendorData";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 
@@ -18,6 +18,20 @@ import { useNavigate } from "react-router";
     });
   
     return { vendorData, isError, isLoading, error, refetch };
+  };
+ export const useGetAllVendors = () => {
+    const {
+      data: allVendorData,
+      isError,
+      isLoading,
+      error,
+      refetch
+    } = useQuery({
+      queryKey: ["fetchGetAllVendors"],
+      queryFn: async () => await fetchGetAllVendors()
+    });
+  
+    return { allVendorData, isError, isLoading, error, refetch };
   };
  export const useGetVendorDataWithUserId = (id:string) => {
     const {
