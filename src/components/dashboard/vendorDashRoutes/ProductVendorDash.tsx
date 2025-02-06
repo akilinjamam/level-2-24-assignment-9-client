@@ -58,7 +58,7 @@ const ProductVendorDash = () => {
         paginatedDataContainer?.slice()
           ?.reverse()
           ?.map((product: any) => (
-            <div className="flex flex-wrap w-full lg:h-[300px] md:h-[400px] sm:h-auto xsm:h-auto bg-gray-200 mb-3" key={product?.productId}>
+            <div className="flex flex-wrap w-full lg:h-auto md:h-[400px] sm:h-auto xsm:h-auto bg-gray-200 mb-3" key={product?.productId}>
               <div className="w-[300px] h-full">
                 <div className="w-[300px] h-[200px] bg-gray-300">
                   <img className="w-full h-full" src={product?.images[0]} alt="" />
@@ -77,7 +77,7 @@ const ProductVendorDash = () => {
                 <p>Discount: {product?.discount}</p>
                 <p>Flash Sale: {product?.flashSale ? "On" : "Off"}</p>
                 <br />
-                <p>Details: {product?.details}</p>
+                <p className="w-[300px]">Details: {product?.details}</p>
                 <br />
                 <div>
                   <button

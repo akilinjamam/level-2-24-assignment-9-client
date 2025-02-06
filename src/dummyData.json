@@ -1,0 +1,415 @@
+[
+    {
+      
+      "productName": "Wireless Bluetooth Earbuds",
+      "category": "electronics",
+      "quantity": 50,
+      "discount": 10,
+      "price": 59,
+      "flashSale": false,
+      "details": "High-quality wireless earbuds with noise cancellation.",
+      "clicked": 0,
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735452494/bpyagnwl71v5vgmaxmka.jpg","https://res.cloudinary.com/dynvzd41q/image/upload/v1735452494/bpyagnwl71v5vgmaxmka.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+      
+      "productName": "Smartphone X10",
+      "category": "electronics",
+      "quantity": 30,
+      "discount": 5,
+      "price": 699,
+      "flashSale": false,
+      "details": "Latest model smartphone with advanced features.",
+      "clicked": 0,
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735450973/md3ookrbeaxbqbgxmjvn.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735451301/axv0hot4vxjyygijavr7.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735451237/yw6whmafo2bd4hegwnqp.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+      
+      "productName": "Gaming Laptop Pro 15",
+      "category": "electronics",
+      "quantity": 20,
+      "discount": 15,
+      "price": 1299,
+      "flashSale": false,
+      "details": "High-performance gaming laptop with RTX graphics.",
+      "clicked": 0,
+      "images": ["laptop1.jpg", "laptop2.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+      
+      "productName": "4K Smart TV 55-inch",
+      "category": "electronics",
+      "quantity": 15,
+      "discount": 20,
+      "price": 799,
+      "flashSale": false,
+      "details": "55-inch 4K UHD Smart TV with HDR support.",
+      "clicked": 0,
+      "images": ["tv1.jpg", "tv2.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+      
+      "productName": "Wireless Gaming Mouse",
+      "category": "electronics",
+      "quantity": 40,
+      "discount": 10,
+      "price": 49,
+      "flashSale": false,
+      "details": "Ergonomic gaming mouse with RGB lighting.",
+      "clicked": 0,
+      "images": ["mouse1.jpg", "mouse2.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+      
+      "productName": "Modern Table Lamp",
+      "category": "home decor",
+      "quantity": 35,
+      "discount": 5,
+      "price": 39,
+      "flashSale": false,
+      "details": "Stylish table lamp with adjustable brightness.",
+      "clicked": 0,
+      "images": ["lamp1.jpg", "lamp2.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+
+      "productName": "Luxury Ballpoint Pen",
+      "category": "stationaries",
+      "quantity": 50,
+      "discount": 5,
+      "price": 19,
+      "flashSale": false,
+      "details": "Elegant ballpoint pen with smooth ink flow.",
+      "clicked": 0,
+      "images": ["pen1.jpg", "pen2.jpg"],
+      "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+      "suspend": false,
+      "stock": true
+    },
+    {
+        
+        "productName": "Modern Table Lamp",
+        "category": "home decor",
+        "quantity": 35,
+        "discount": 5,
+        "price": 39,
+        "flashSale": false,
+        "details": "Stylish table lamp with adjustable brightness.",
+        "clicked": 0,
+        "images": ["lamp1.jpg", "lamp2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Wooden Wall Clock",
+        "category": "home decor",
+        "quantity": 25,
+        "discount": 10,
+        "price": 49,
+        "flashSale": false,
+        "details": "Elegant wooden wall clock with silent mechanism.",
+        "clicked": 0,
+        "images": ["clock1.jpg", "clock2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Decorative Vase Set",
+        "category": "home decor",
+        "quantity": 40,
+        "discount": 15,
+        "price": 59,
+        "flashSale": false,
+        "details": "Set of 3 ceramic vases for flowers and decor.",
+        "clicked": 0,
+        "images": ["vase1.jpg", "vase2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Luxury Throw Blanket",
+        "category": "home decor",
+        "quantity": 20,
+        "discount": 20,
+        "price": 79,
+        "flashSale": false,
+        "details": "Soft and cozy throw blanket for sofas and beds.",
+        "clicked": 0,
+        "images": ["blanket1.jpg", "blanket2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "LED String Lights",
+        "category": "home decor",
+        "quantity": 50,
+        "discount": 10,
+        "price": 29,
+        "flashSale": false,
+        "details": "Warm white LED string lights for indoor decoration.",
+        "clicked": 0,
+        "images": ["lights1.jpg", "lights2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Professional Soccer Ball",
+        "category": "sports",
+        "quantity": 50,
+        "discount": 10,
+        
+        "price": 29,
+        "flashSale": false,
+        "details": "FIFA-approved high-quality soccer ball for professional play.",
+
+        "clicked": 0,
+        "images": ["soccer1.jpg", "soccer2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Adjustable Dumbbell Set",
+        "category": "sports",
+        "quantity": 30,
+        "discount": 15,
+        
+        "price": 99,
+        "flashSale": false,
+        "details": "Pair of adjustable dumbbells with a weight range of 5-50 lbs.",
+
+        "clicked": 0,
+        "images": ["dumbbell1.jpg", "dumbbell2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Yoga Mat - Non-Slip",
+        "category": "sports",
+        "quantity": 40,
+        "discount": 5,
+
+        "price": 25,
+        "flashSale": false,
+        "details": "Eco-friendly, non-slip yoga mat for comfortable workouts.",
+
+        "clicked": 0,
+        "images": ["yoga_mat1.jpg", "yoga_mat2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Tennis Racket - Carbon Fiber",
+        "category": "sports",
+        "quantity": 20,
+        "discount": 20,
+
+        "price": 149,
+        "flashSale": false,
+        "details": "Lightweight carbon fiber tennis racket for professional play.",
+
+        "clicked": 0,
+        "images": ["tennis_racket1.jpg", "tennis_racket2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        
+        "productName": "Boxing Gloves - 12oz",
+        "category": "sports",
+        "quantity": 35,
+        "discount": 10,
+        "price": 45,
+        "flashSale": false,
+        "details": "Premium leather boxing gloves for training and competition.",
+        "clicked": 0,
+        "images": ["boxing_gloves1.jpg", "boxing_gloves2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Men's Cotton T-Shirt",
+        "category": "clothing",
+        "quantity": 100,
+        "discount": 10,
+        
+        "price": 19,
+        "flashSale": false,
+        "details": "Premium quality cotton t-shirt with a comfortable fit.",
+        "clicked": 0,
+        "images": ["tshirt1.jpg", "tshirt2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Women's Denim Jacket",
+        "category": "clothing",
+        "quantity": 50,
+        "discount": 15,
+        
+        "price": 49,
+        "flashSale": false,
+        "details": "Stylish denim jacket with a modern fit and durable fabric.",
+        "clicked": 0,
+        "images": ["denim_jacket1.jpg", "denim_jacket2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Men's Slim Fit Jeans",
+        "category": "clothing",
+        "quantity": 75,
+        "discount": 5,
+        
+        "price": 39,
+        "flashSale": false,
+        "details": "Stretchable slim-fit jeans with a trendy design.",
+        "clicked": 0,
+        "images": ["jeans1.jpg", "jeans2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Hooded Sweatshirt",
+        "category": "clothing",
+        "quantity": 60,
+        "discount": 20,
+        
+        "price": 59,
+        "flashSale": false,
+        "details": "Warm and cozy hoodie with a front pocket and soft fabric.",
+        "clicked": 0,
+        "images": ["hoodie1.jpg", "hoodie2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Unisex Running Shoes",
+        "category": "clothing",
+        "quantity": 80,
+        "discount": 10,
+        "price": 69,
+        "flashSale": false,
+        "details": "Lightweight and comfortable running shoes for everyday wear.",
+        "clicked": 0,
+        "images": ["shoes1.jpg", "shoes2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Premium Notebook - A5",
+        "category": "stationeries",
+        "quantity": 100,
+        "discount": 10,
+        
+        "price": 12,
+        "flashSale": false,
+        "details": "High-quality A5 notebook with 200 ruled pages.",
+        "clicked": 0,
+        "images": ["notebook1.jpg", "notebook2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Ballpoint Pen Set - 10 Pack",
+        "category": "stationeries",
+        "quantity": 150,
+        "discount": 5,
+        
+        "price": 8,
+        "flashSale": false,
+        "details": "Smooth-writing ballpoint pens with long-lasting ink.",
+        "clicked": 0,
+        "images": ["pen_set1.jpg", "pen_set2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Sticky Notes - 5 Colors",
+        "category": "stationeries",
+        "quantity": 200,
+        "discount": 15,
+        
+        "price": 6,
+        "flashSale": false,
+        "details": "Bright and colorful sticky notes for reminders and organization.",
+        "clicked": 0,
+        "images": ["sticky_notes1.jpg", "sticky_notes2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Mechanical Pencil - Pack of 3",
+        "category": "stationeries",
+        "quantity": 120,
+        "discount": 10,
+        
+        "price": 9,
+        "flashSale": false,
+        "details": "Durable mechanical pencils with refillable lead.",
+        "clicked": 0,
+        "images": ["pencil1.jpg", "pencil2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      },
+      {
+        "productName": "Desk Organizer",
+        "category": "stationeries",
+        "quantity": 50,
+        "discount": 20,
+        
+        "price": 25,
+        "flashSale": false,
+        "details": "Multipurpose desk organizer with compartments for office supplies.",
+        "clicked": 0,
+        "images": ["organizer1.jpg", "organizer2.jpg"],
+        "vendorId": "bd856592-093c-4ccc-b4c9-7a039ca9a98f",
+        "suspend": false,
+        "stock": true
+      }
+  ]
+  
