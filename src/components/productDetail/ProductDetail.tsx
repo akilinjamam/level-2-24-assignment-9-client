@@ -33,7 +33,7 @@ const ProductDetail = () => {
 
 
     const {allProductDataWithId, refetch} = useGetProductDataWithFlashId(productId as string);
-
+    console.log(allProductDataWithId)
     
     useEffect(() => {
         refetch()
@@ -123,7 +123,7 @@ const ProductDetail = () => {
                 <br />
                 <div>
                     <p className="font-bold">Reviews:</p>
-                    { item?.Review?.lenght > 0
+                    { item?.Review?.length > 0
                         ?
                                     item?.Review?.map((review:any) => {
                                         return (

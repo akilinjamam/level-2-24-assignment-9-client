@@ -1,6 +1,6 @@
 [
     {
-      "productName": "Mobile A",
+      "productName": "Redme Note 13",
       "category": "Electronics",
       "quantity": 10,
       "discount": 5,
@@ -10,11 +10,11 @@
       "details": "High-quality smartphone with 128GB storage.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/mobile_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "0a991427-ae60-4b8e-a544-610c1b964ac8"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735452366/t1equ25jopadj15bvwtu.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452366/t1equ25jopadj15bvwtu.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452023/wpt2qyyq0ubqrfsa0txf.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452002/yg0kgtumg2pshvj6cbps.jpg"],
+      "vendorId": "bb1693b4-1dab-4aa8-80eb-0364f03d8a3d"
     },
     {
-      "productName": "Mobile B",
+      "productName": "Redmi Note 13 Pro",
       "category": "Electronics",
       "quantity": 15,
       "discount": 10,
@@ -24,11 +24,11 @@
       "details": "Smartphone with advanced camera features.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "0a991427-ae60-4b8e-a544-610c1b964ac8"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735452366/t1equ25jopadj15bvwtu.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452366/t1equ25jopadj15bvwtu.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452023/wpt2qyyq0ubqrfsa0txf.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452002/yg0kgtumg2pshvj6cbps.jpg"],
+      "vendorId": "bb1693b4-1dab-4aa8-80eb-0364f03d8a3d"
     },
     {
-      "productName": "Wallet A",
+      "productName": "Wallet",
       "category": "Accessories",
       "quantity": 30,
       "discount": 15,
@@ -38,11 +38,11 @@
       "details": "Leather wallet with multiple compartments.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/wallet_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "89547372-842b-46b7-8baf-8b1164fbdf57"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735452306/a7upl4cyqyey2mpbmqnc.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452317/kxxlkxxfovplqqfw67ij.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452317/kxxlkxxfovplqqfw67ij.jpg"],
+      "vendorId": "https://res.cloudinary.com/dynvzd41q/image/upload/v1738856909/lqqx18tyukglsqpnhk1h.jpg"
     },
     {
-      "productName": "Sunglasses A",
+      "productName": "Rebon Sunglasses",
       "category": "Fashion",
       "quantity": 20,
       "discount": 0,
@@ -52,11 +52,11 @@
       "details": "UV-protected stylish sunglasses.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/sunglasses_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "89547372-842b-46b7-8baf-8b1164fbdf57"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735455793/fzyxnhuyrtii2ohax35f.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735455785/u2vdt64zyi4yvzuhqyyp.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735454272/lu3nltoqz6d5cuy9jrag.jpg"],
+      "vendorId": "a969177e-07fc-4892-bf97-ac2e0e3c48af"
     },
     {
-      "productName": "Smart Watch A",
+      "productName": "Smart Watch",
       "category": "Electronics",
       "quantity": 25,
       "discount": 20,
@@ -66,8 +66,8 @@
       "details": "Smartwatch with fitness tracking features.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/smartwatch_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "db06542e-84ed-4839-b9e0-74f6fa99e95d"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735453805/xm0tkuamr6y8kpx3aunq.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453828/clurbkoxzgwq7u5b3nnf.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453814/jdi9tplzdhgmgrsastvk.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453772/ngylqadxpi9d8xleuti8.jpg"],
+      "vendorId": "a969177e-07fc-4892-bf97-ac2e0e3c48af"
     },
     {
       "productName": "Wrist Watch A",
@@ -80,8 +80,8 @@
       "details": "Elegant wristwatch for all occasions.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/wristwatch_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "db06542e-84ed-4839-b9e0-74f6fa99e95d"
+     "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735453805/xm0tkuamr6y8kpx3aunq.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453828/clurbkoxzgwq7u5b3nnf.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453814/jdi9tplzdhgmgrsastvk.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453772/ngylqadxpi9d8xleuti8.jpg"],
+      "vendorId": "a969177e-07fc-4892-bf97-ac2e0e3c48af"
     },
     {
       "productName": "Desk Organizer A",
@@ -94,11 +94,11 @@
       "details": "Organizer for managing desk clutter.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/desk_organizer_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "e337d2c2-4054-46c1-a1b6-992d884efc30"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1738857719/bojghxvomaahrkgyasme.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1738857728/qpufaaxmjqer4a56wshy.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735456505/hfl1friaheqt7b25jvsj.jpg"],
+      "vendorId": "a969177e-07fc-4892-bf97-ac2e0e3c48af"
     },
     {
-      "productName": "Yoga Mat A",
+      "productName": "Yoga Mat",
       "category": "Fitness",
       "quantity": 35,
       "discount": 5,
@@ -108,11 +108,11 @@
       "details": "Non-slip yoga mat for home workouts.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/yoga_mat_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "e337d2c2-4054-46c1-a1b6-992d884efc30"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735453685/gf8pesikmewzfoiwwnoc.webp", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453670/vcncx5bwhfetsbqsf73g.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735453662/kn0wzqj1fgkdhnmyks4f.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735454098/sf78seozn4ywgpqdhxa2.jpg"],
+      "vendorId": "60c7a0ee-7cf2-4180-b147-ef1b6c34b3cc"
     },
     {
-      "productName": "Headphone A",
+      "productName": "Headphone",
       "category": "Electronics",
       "quantity": 22,
       "discount": 8,
@@ -122,8 +122,8 @@
       "details": "Over-ear headphones with noise cancellation.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/headphone_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "e581478c-fc4c-4ced-bd41-61979f260456"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735452482/zegayblz6qiqy5vhly2c.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452473/ydtkowaxwkypyykgmkp4.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452200/qcehe2k7rc8ils0gtpui.jpg"],
+      "vendorId": "60c7a0ee-7cf2-4180-b147-ef1b6c34b3cc"
     },
     {
       "productName": "Bluetooth Headphone A",
@@ -136,8 +136,8 @@
       "details": "Wireless Bluetooth headphones with long battery life.",
       "suspend": false,
       "clicked": 0,
-      "images": ["https://example.com/bluetooth_headphone_a.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg", "https://example.com/mobile_b.jpg"],
-      "vendorId": "e581478c-fc4c-4ced-bd41-61979f260456"
+      "images": ["https://res.cloudinary.com/dynvzd41q/image/upload/v1735452255/gidk4f9p0te0xqirv2pb.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452214/qyffhvcguwcbe8qaohd3.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452200/qcehe2k7rc8ils0gtpui.jpg", "https://res.cloudinary.com/dynvzd41q/image/upload/v1735452406/iksbmquq7q7s2dotaeiv.jpg"],
+      "vendorId": "60c7a0ee-7cf2-4180-b147-ef1b6c34b3cc"
     }
   ]
   
